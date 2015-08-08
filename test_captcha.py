@@ -1,6 +1,7 @@
 import unittest
 from captcha import Captcha
 from captcha import Operator
+from captcha import Operand
 
 class TestCaptchaFirstPatternLeftOperand(unittest.TestCase):
 	firstPattern = 1
@@ -86,4 +87,21 @@ class TestOperator(unittest.TestCase):
 		operator = Operator(1)
 		self.assertEqual('+', operator.toString())
 
+	def test_2_should_be_multiply(self):
+		operator = Operator(2)
+		self.assertEqual('*', operator.toString())
+
+	def test_3_should_be_multiply(self):
+		operator = Operator(3)
+		self.assertEqual('-', operator.toString())
+
+
+class TestOperand(unittest.TestCase):
+	def test_first_pattern_1_should_be_1(self):
+		operand = Operand(1,1)
+		self.assertEqual('1', operand.toString())
+
+	def test_second_pattern_1_should_be_one(self):
+		operand = Operand(2,1)
+		self.assertEqual('one', operand.toString())
 
