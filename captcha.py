@@ -5,6 +5,7 @@ class Captcha:
 		self.operator = operator
 		self.rightOperand = rightOperand
 		self.map_number = {1:"one", 2:"two", 3:"three", 4:"four", 5:"five", 6:"six", 7:"seven", 8:"eight", 9:"nine", 0:"zero"}
+		self.map_operator = {1:"+", 2:"*", 3:"-"}
 
 	def left_operand(self):
 		if self.pattern == 2:
@@ -17,7 +18,5 @@ class Captcha:
 		return str(self.rightOperand)
 
 	def operator_flag(self):
-		if self.operator == 2:
-			return '-'
-		return '+'
+		return self.map_operator[self.operator]
 
