@@ -10,3 +10,6 @@ class Captcha:
 		if self.pattern == 2:
 			return map_number[self.leftOperand]
 		return str(self.leftOperand)
+
+
+		

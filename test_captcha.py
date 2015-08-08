@@ -2,29 +2,37 @@ import unittest
 from captcha import Captcha
 
 class TestCaptchaFirstPatternLeftOperand(unittest.TestCase):
+	firstPattern = 1
+	dummyOperator = 1
+	dummyRightOperand = 1
+
 	def test_1_should_be_1(self):
-		captcha = Captcha(1, 1, 1, 1)
+		captcha = Captcha(self.firstPattern, 1, self.dummyOperator, self.dummyRightOperand)
 		self.assertEqual('1', captcha.left_operand())
 
 	def test_2_should_be_2(self):
-		captcha = Captcha(1, 2, 1, 1)
+		captcha = Captcha(self.firstPattern, 2, self.dummyOperator, self.dummyRightOperand)
 		self.assertEqual('2', captcha.left_operand())
 
 class TestCaptchaSecondPatternLeftOperand(unittest.TestCase):
+	secondPattern = 2
+	dummyOperator = 1
+	dummyRightOperand = 1
+
 	def test_1_should_be_one(self):
-		captcha = Captcha(2, 1, 1, 1)
+		captcha = Captcha(self.secondPattern, 1, self.dummyOperator, self.dummyRightOperand)
 		self.assertEqual('one', captcha.left_operand())
 
 	def test_2_should_be_two(self):
-		captcha = Captcha(2, 2, 1, 1)
+		captcha = Captcha(self.secondPattern, 2, self.dummyOperator, self.dummyRightOperand)
 		self.assertEqual('two', captcha.left_operand())
 
 	def test_3_should_be_three(self):
-		captcha = Captcha(2, 3, 1, 1)
+		captcha = Captcha(self.secondPattern, 3, self.dummyOperator, self.dummyRightOperand)
 		self.assertEqual('three', captcha.left_operand())
 
 	def test_4_should_be_three(self):
-		captcha = Captcha(2, 4, 1, 1)
+		captcha = Captcha(self.secondPattern, 4, self.dummyOperator, self.dummyRightOperand)
 		self.assertEqual('four', captcha.left_operand())
 
 
