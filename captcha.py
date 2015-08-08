@@ -1,3 +1,4 @@
+import json
 from random import randint
 
 class Captcha:
@@ -40,3 +41,14 @@ class Randomizer:
 		return randint(1,2)
 	def operand(self):
 		return randint(1,9)
+
+class Output:
+	def __init__(self, captcha):
+		self.captcha = captcha
+	def json(self):
+		obj = {"left": self.captcha.leftOperand.toString(), "operator": self.captcha.operator.toString(), "right": self.captcha.rightOperand.toString()}
+		return json.dumps(obj)
+
+
+
+

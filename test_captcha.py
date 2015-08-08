@@ -4,6 +4,7 @@ from captcha import Operator
 from captcha import StringOperand
 from captcha import NumberOperand
 from captcha import Randomizer
+from captcha import Output
 
 class TestCaptchaFirstPatternLeftOperand(unittest.TestCase):
 	firstPattern = 1
@@ -118,3 +119,14 @@ class TestRandomizerOperand(unittest.TestCase):
 		random = Randomizer()
 		self.assertTrue(random.operand() >= 1)
 		self.assertTrue(random.operand() <= 9)
+
+class TestOutput(unittest.TestCase):
+	def test_get_json(self):
+		captcha = Captcha(1,1,1,1)
+		output = Output(captcha)
+		self.assertEqual('{"operator": "+", "right": "1", "left": "1"}', output.json())
+
+
+
+
+
