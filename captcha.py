@@ -5,7 +5,10 @@ class Captcha:
 	def __init__(self, pattern, leftOperand, operator, rightOperand):
 		self.pattern = pattern
 		self.leftOperand = self.operandSelector(pattern,leftOperand)
-		self.rightOperand = self.operandSelector(pattern,rightOperand)
+		invert = 1
+		if pattern == 1:
+			invert = 2
+		self.rightOperand = self.operandSelector(invert,rightOperand)
 		self.operator = Operator(operator)
 
 	def operandSelector(self,pattern,operand):
@@ -41,14 +44,28 @@ class Randomizer:
 		return randint(1,2)
 	def operand(self):
 		return randint(1,9)
+	def operator(self):
+		return randint(1,3)
 
 class Output:
 	def __init__(self, captcha):
 		self.captcha = captcha
 	def json(self):
 		obj = {"left": self.captcha.leftOperand.toString(), "operator": self.captcha.operator.toString(), "right": self.captcha.rightOperand.toString()}
+		# obj = {"left": "1", "operator": "1", "right": "1"}
 		return json.dumps(obj)
 
-
+class CaptchaController:
+	def __init__(self):
+		self.random = Randomizer()
+	def toJson(self):
+		pattern = self.random.pattern()
+		leftOperand = self.random.operand()
+		operator = self.random.operator()
+		rightOperand = self.random.operand()
+		captcha = Captcha(pattern, leftOperand, operator, rightOperand)
+		# captcha = Captcha(2, 1, 1, 1)
+		output = Output(captcha)
+		return output.json()
 
 

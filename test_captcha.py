@@ -5,6 +5,7 @@ from captcha import StringOperand
 from captcha import NumberOperand
 from captcha import Randomizer
 from captcha import Output
+from captcha import CaptchaController
 
 class TestCaptchaFirstPatternLeftOperand(unittest.TestCase):
 	firstPattern = 1
@@ -41,7 +42,7 @@ class TestCaptchaSecondPatternLeftOperand(unittest.TestCase):
 		self.assertEqual('four', captcha.leftOperand.toString())
 
 class TestCaptchaFirstPatternRightOperand(unittest.TestCase):
-	secondPattern = 1
+	secondPattern = 2
 	dummyOperator = 1
 	dummyLeftOperand = 1
 
@@ -54,8 +55,8 @@ class TestCaptchaFirstPatternRightOperand(unittest.TestCase):
 		self.assertEqual('2', captcha.rightOperand.toString())
 
 
-class TestCaptchaSecondPatternRightOperand(unittest.TestCase):
-	secondPattern = 2
+class TestCaptchaFirstPatternRightOperand(unittest.TestCase):
+	secondPattern = 1
 	dummyOperator = 1
 	dummyLeftOperand = 1
 
@@ -124,7 +125,21 @@ class TestOutput(unittest.TestCase):
 	def test_get_json(self):
 		captcha = Captcha(1,1,1,1)
 		output = Output(captcha)
-		self.assertEqual('{"operator": "+", "right": "1", "left": "1"}', output.json())
+		self.assertEqual('{"operator": "+", "right": "one", "left": "1"}', output.json())
+
+class TestCaptchaController(unittest.TestCase):
+	class randomStup:
+		def pattern(self):
+			return 1
+		def operand(self):
+			return 1
+		def operator(self):
+			return 1
+	def test_controller_return_something(self):
+		controller = CaptchaController()
+		controller.random = self.randomStup()
+		self.assertEqual('{"operator": "+", "right": "one", "left": "1"}', controller.toJson())
+
 
 
 
