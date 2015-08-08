@@ -6,12 +6,7 @@ class Captcha:
 		self.rightOperand = rightOperand
 
 	def left_operand(self):
+		map_number = {1:"one", 2:"two", 3:"three", 4:"four"}
 		if self.pattern == 2:
-			if self.leftOperand == 2:
-				return "two"
-			if self.leftOperand == 3:
-				return "three"
-			if self.leftOperand == 4:
-				return "four"
-			return "one"
+			return map_number[self.leftOperand]
 		return str(self.leftOperand)
