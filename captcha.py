@@ -52,7 +52,6 @@ class Output:
 		self.captcha = captcha
 	def json(self):
 		obj = {"left": self.captcha.leftOperand.toString(), "operator": self.captcha.operator.toString(), "right": self.captcha.rightOperand.toString()}
-		# obj = {"left": "1", "operator": "1", "right": "1"}
 		return json.dumps(obj)
 
 class CaptchaController:
@@ -60,7 +59,6 @@ class CaptchaController:
 		self.random = Randomizer()
 	def toJson(self):
 		captcha = Captcha(self.random.pattern(), self.random.operand(), self.random.operator(), self.random.operand())
-		# captcha = Captcha(2, 1, 1, 1)
 		output = Output(captcha)
 		return output.json()
 
