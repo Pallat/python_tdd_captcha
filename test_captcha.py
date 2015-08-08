@@ -35,6 +35,19 @@ class TestCaptchaSecondPatternLeftOperand(unittest.TestCase):
 		captcha = Captcha(self.secondPattern, 4, self.dummyOperator, self.dummyRightOperand)
 		self.assertEqual('four', captcha.left_operand())
 
+class TestCaptchaSecondPatternLeftOperand(unittest.TestCase):
+	secondPattern = 1
+	dummyOperator = 1
+	dummyLeftOperand = 1
+
+	def test_1_should_be_1(self):
+		captcha = Captcha(self.secondPattern, self.dummyLeftOperand, self.dummyOperator, 1)
+		self.assertEqual('1', captcha.right_operand())
+
+	def test_2_should_be_2(self):
+		captcha = Captcha(self.secondPattern, self.dummyLeftOperand, self.dummyOperator, 2)
+		self.assertEqual('2', captcha.right_operand())
+
 
 
 
