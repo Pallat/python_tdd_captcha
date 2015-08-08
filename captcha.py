@@ -16,4 +16,6 @@ class Captcha:
 			return self.map_number[self.rightOperand]
 		return str(self.rightOperand)
 
+	def operator_flag(self):
+		return '+'
 

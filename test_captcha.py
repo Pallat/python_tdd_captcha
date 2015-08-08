@@ -63,5 +63,13 @@ class TestCaptchaSecondPatternRightOperand(unittest.TestCase):
 		self.assertEqual('two', captcha.right_operand())
 
 
+class TestCaptchaOperator(unittest.TestCase):
+	dummyPattern = 1
+	dummyLeftOperand = 1
+	dummyRightOperand = 1
+
+	def test_1_should_be_plus(self):
+		captcha = Captcha(self.dummyPattern, self.dummyLeftOperand, 1, self.dummyRightOperand)
+		self.assertEqual('+', captcha.operator_flag())
 
 
