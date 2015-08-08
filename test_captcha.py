@@ -3,6 +3,7 @@ from captcha import Captcha
 from captcha import Operator
 from captcha import StringOperand
 from captcha import NumberOperand
+from captcha import Randomizer
 
 class TestCaptchaFirstPatternLeftOperand(unittest.TestCase):
 	firstPattern = 1
@@ -106,3 +107,14 @@ class TestNumberOperand(unittest.TestCase):
 		operand = NumberOperand(1)
 		self.assertEqual('1', operand.toString())
 
+class TestRandomizerPattern(unittest.TestCase):
+	def test_pattern_should_not_more_than_2(self):
+		random = Randomizer()
+		self.assertTrue(random.pattern() <= 2)
+		self.assertTrue(random.pattern() >= 1)
+
+class TestRandomizerOperand(unittest.TestCase):
+	def test_operand_should_in_range_1_to_9(self):
+		random = Randomizer()
+		self.assertTrue(random.operand() >= 1)
+		self.assertTrue(random.operand() <= 9)

@@ -1,3 +1,5 @@
+from random import randint
+
 class Captcha:
 	def __init__(self, pattern, leftOperand, operator, rightOperand):
 		self.pattern = pattern
@@ -32,3 +34,9 @@ class NumberOperand:
 
 	def toString(self):
 		return str(self.operand)
+
+class Randomizer:
+	def pattern(self):
+		return randint(1,2)
+	def operand(self):
+		return randint(1,9)
