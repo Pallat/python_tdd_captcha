@@ -18,3 +18,11 @@ class TestCaptchaSecondPatternLeftOperand(unittest.TestCase):
 	def test_2_should_be_two(self):
 		captcha = Captcha(2, 2, 1, 1)
 		self.assertEqual('two', captcha.left_operand())
+
+	def test_3_should_be_three(self):
+		captcha = Captcha(2, 3, 1, 1)
+		self.assertEqual('three', captcha.left_operand())
+
+
+
+
