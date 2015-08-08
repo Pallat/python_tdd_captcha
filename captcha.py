@@ -1,9 +1,12 @@
 class Captcha:
 	def __init__(self, pattern, leftOperand, operator, rightOperand):
 		self.pattern = pattern
-		self.leftOperand = Operand(pattern, leftOperand)
+		self.leftOperand = NumberOperand(leftOperand)
+		self.rightOperand = NumberOperand(rightOperand)
+		if pattern == 2:
+			self.leftOperand = StringOperand(leftOperand)
+			self.rightOperand = StringOperand(rightOperand)
 		self.operator = Operator(operator)
-		self.rightOperand = Operand(pattern, rightOperand)
 
 class Operator:
 	def __init__(self, operator):
@@ -12,15 +15,6 @@ class Operator:
 
 	def toString(self):
 		return self.map_operator[self.operator]
-
-class Operand:
-	def __init__(self,pattern,operand):
-		self.operand = NumberOperand(operand)
-		if pattern == 2:
-			self.operand = StringOperand(operand)
-
-	def toString(self):
-		return self.operand.toString()
 
 class StringOperand:
 	def __init__(self,operand):
