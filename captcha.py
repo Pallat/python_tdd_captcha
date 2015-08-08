@@ -11,5 +11,7 @@ class Captcha:
 				return "two"
 			if self.leftOperand == 3:
 				return "three"
+			if self.leftOperand == 4:
+				return "four"
 			return "one"
 		return str(self.leftOperand)
