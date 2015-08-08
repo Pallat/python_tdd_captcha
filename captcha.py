@@ -59,11 +59,7 @@ class CaptchaController:
 	def __init__(self):
 		self.random = Randomizer()
 	def toJson(self):
-		pattern = self.random.pattern()
-		leftOperand = self.random.operand()
-		operator = self.random.operator()
-		rightOperand = self.random.operand()
-		captcha = Captcha(pattern, leftOperand, operator, rightOperand)
+		captcha = Captcha(self.random.pattern(), self.random.operand(), self.random.operator(), self.random.operand())
 		# captcha = Captcha(2, 1, 1, 1)
 		output = Output(captcha)
 		return output.json()
