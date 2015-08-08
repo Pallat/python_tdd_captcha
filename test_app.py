@@ -33,3 +33,7 @@ class TestFizzBuzzAPI(unittest.TestCase):
 		self.assertEqual('fizzbuzz', response.data)
 		response = self.app.get('/fizzbuzz/30')
 		self.assertEqual('fizzbuzz', response.data)
+
+	def test_route_captcha(self):
+		response = self.app.get('/captcha')
+		self.assertEqual(200, response.status_code)

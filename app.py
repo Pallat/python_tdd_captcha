@@ -12,5 +12,9 @@ def fizzbuzz(number):
 	fb = FizzBuzz()
 	return fb.count(number)
 
+@app.route('/captcha')
+def captcha():
+	return "good"
+
 if __name__ == '__main__':
 	app.run()
