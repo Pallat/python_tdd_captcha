@@ -20,3 +20,11 @@ class Captcha:
 	def operator_flag(self):
 		return self.map_operator[self.operator]
 
+
+class Operator:
+	def __init__(self, operator):
+		self.operator = operator
+		self.map_operator = {1:"+", 2:"*", 3:"-"}
+
+	def toString(self):
+		return self.map_operator[self.operator]
