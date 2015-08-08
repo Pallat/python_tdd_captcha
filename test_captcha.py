@@ -72,4 +72,8 @@ class TestCaptchaOperator(unittest.TestCase):
 		captcha = Captcha(self.dummyPattern, self.dummyLeftOperand, 1, self.dummyRightOperand)
 		self.assertEqual('+', captcha.operator_flag())
 
+	def test_2_should_be_minus(self):
+		captcha = Captcha(self.dummyPattern, self.dummyLeftOperand, 2, self.dummyRightOperand)
+		self.assertEqual('-', captcha.operator_flag())
+
 

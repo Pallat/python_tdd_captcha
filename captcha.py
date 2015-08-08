@@ -17,5 +17,7 @@ class Captcha:
 		return str(self.rightOperand)
 
 	def operator_flag(self):
+		if self.operator == 2:
+			return '-'
 		return '+'
 
