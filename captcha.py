@@ -18,7 +18,8 @@ class Captcha:
 		return str(self.rightOperand)
 
 	def operator_flag(self):
-		return self.map_operator[self.operator]
+		operObj = Operator(self.operator)
+		return operObj.toString()
 
 
 class Operator:
