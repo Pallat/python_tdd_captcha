@@ -2,19 +2,23 @@ import json
 from random import randint
 
 class Captcha:
-	def __init__(self, pattern, leftOperand, operator, rightOperand):
-		self.pattern = pattern
-		self.leftOperand = self.operandSelector(pattern,leftOperand)
-		invert = 1
-		if pattern == 1:
-			invert = 2
-		self.rightOperand = self.operandSelector(invert,rightOperand)
-		self.operator = Operator(operator)
+    def __init__(self, pattern, leftOperand, operator, rightOperand):
+        self.pattern = pattern
+        self.operator = Operator(operator)
+        self.leftOperand, self.rightOperand = self.createOperand(pattern, leftOperand, rightOperand)
 
-	def operandSelector(self,pattern,operand):
-		if pattern == 2:
-			return StringOperand(operand)
-		return NumberOperand(operand)
+    def createOperand(self, pattern, leftOperand, rightOperand):
+        left = self.operandSelector(pattern,leftOperand)
+        invert = 1
+        if pattern == 1:
+            invert = 2
+        right = self.operandSelector(invert,rightOperand)
+        return left, right 
+
+    def operandSelector(self,pattern,operand):
+        if pattern == 2:
+            return StringOperand(operand)
+        return NumberOperand(operand)
 
 class Operator:
 	def __init__(self, operator):
