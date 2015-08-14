@@ -3,11 +3,12 @@ from random import randint
 
 class Captcha:
     def __init__(self, pattern, leftOperand, operator, rightOperand):
-        self.pattern = pattern
+        operandBuilder = OperandBuilder()
         self.operator = Operator(operator)
-        self.leftOperand, self.rightOperand = self.createOperand(pattern, leftOperand, rightOperand)
+        self.leftOperand, self.rightOperand = operandBuilder.build(pattern, leftOperand, rightOperand)
 
-    def createOperand(self, pattern, leftOperand, rightOperand):
+class OperandBuilder:
+    def build(self, pattern, leftOperand, rightOperand):
         left = self.operandSelector(pattern,leftOperand)
         invert = 1
         if pattern == 1:
